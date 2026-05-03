@@ -1,0 +1,62 @@
+{
+  "name": "@careerops/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "msw:init": "msw init public/ --save",
+    "clean": "rm -rf .next .turbo"
+  },
+  "dependencies": {
+    "next": "14.2.15",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@careerops/tokens": "workspace:*",
+    "@careerops/ui": "workspace:*",
+    "@careerops/icons": "workspace:*",
+    "@careerops/api-client": "workspace:*",
+    "@tanstack/react-query": "^5.59.0",
+    "@tanstack/react-virtual": "^3.10.8",
+    "@xyflow/react": "^12.3.5",
+    "framer-motion": "^11.11.7",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.4",
+    "zustand": "^5.0.0",
+    "nuqs": "^2.0.4",
+    "@radix-ui/react-tabs": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.1.4",
+    "@radix-ui/react-select": "^2.1.2",
+    "lucide-react": "^0.453.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "@types/react": "18.3.11",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.15",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.2",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/user-event": "^14.5.2",
+    "jsdom": "^25.0.1",
+    "msw": "^2.6.0",
+    "@faker-js/faker": "^9.0.3"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

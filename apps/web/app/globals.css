@@ -1,0 +1,102 @@
+@import '@careerops/tokens/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-body-m);
+    line-height: var(--lh-body);
+    transition: background-color var(--duration-base) var(--ease-standard);
+  }
+
+  /* Indic-aware line-height — Devanagari and Tamil glyphs sit taller */
+  :lang(hi),
+  :lang(mr) {
+    line-height: calc(var(--lh-body) * 1.15);
+  }
+
+  :lang(ta),
+  :lang(te) {
+    line-height: calc(var(--lh-body) * 1.1);
+  }
+
+  /* Focus ring — gold, always visible on keyboard, hidden on mouse */
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  /* Honor reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Tabular numerics for money + comparable stats */
+  .tabular {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* Skeleton shimmer */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      110deg,
+      var(--bg-raised) 35%,
+      var(--border-subtle) 50%,
+      var(--bg-raised) 65%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.4s linear infinite;
+  }
+
+  @keyframes skeleton-pulse {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Aurora gradient — used on dashboard hero band + onboarding */
+  .aurora-bg {
+    background:
+      radial-gradient(ellipse at top left, hsl(178 73% 38% / 0.35) 0%, hsl(178 73% 38% / 0) 50%),
+      radial-gradient(ellipse at bottom right, hsl(45 80% 55% / 0.2) 0%, hsl(45 80% 55% / 0) 60%),
+      var(--bg-app);
+  }
+
+  /* Subtle dot grid background — used on canvas/empty workspaces */
+  .dot-grid {
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.04;
+  }
+}

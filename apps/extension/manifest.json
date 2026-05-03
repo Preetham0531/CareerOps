@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "CareerOps India",
+  "short_name": "CareerOps",
+  "version": "0.0.1",
+  "description": "Find roles, prove your skills, engineer referrals — surgically. India-first.",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": [
+    "https://*.naukri.com/*",
+    "https://*.linkedin.com/*",
+    "https://*.indeed.com/*",
+    "https://*.foundit.in/*",
+    "https://*.instahyre.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.naukri.com/*",
+        "https://*.linkedin.com/jobs/*",
+        "https://*.indeed.com/viewjob*",
+        "https://*.foundit.in/job/*",
+        "https://*.instahyre.com/jobs/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
